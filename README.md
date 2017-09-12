@@ -8,3 +8,5 @@ This package compiles TypeScript, ES6 and JSX files into ES5 by hooking into the
 ## Usage
 
 When creating a custom `IProcessor` using node.js, then use the `NodeProcessor` base class in this assembly.
+
+See [an example here](https://github.com/ligershark/WebOptimizer.NodeServices/blob/master/test/LessProcessor.cs).
