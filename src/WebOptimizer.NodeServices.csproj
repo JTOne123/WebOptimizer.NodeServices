@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WebOptimizer.TypeScript.xml</DocumentationFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageTags>node, javascript, asp.net core</PackageTags>
+        <Version>1.0.0-beta</Version>
+        <Authors>LigerShark</Authors>
+        <Company>LigerShark</Company>
+        <Description>Base classes for Node.js based processors for the LigerShark.WebOptimizer.Core system.</Description>
+        <Copyright>Copyright © LigerShark</Copyright>
+        <PackageId>LigerShark.WebOptimizer.NodeServices</PackageId>
+        <Product>LigerShark.WebOptimizer.NodeServices</Product>
+        <PackageIconUrl>https://raw.githubusercontent.com/ligershark/WebOptimizer/master/art/logo64x64.png</PackageIconUrl>
+        <PackageProjectUrl>https://github.com/ligershark/WebOptimizer.NodeServices</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/ligershark/WebOptimizer.NodeServices/blob/master/LICENSE.txt</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/ligershark/WebOptimizer.NodeServices</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.165-beta" />
+        <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    </ItemGroup>
+
+</Project>
