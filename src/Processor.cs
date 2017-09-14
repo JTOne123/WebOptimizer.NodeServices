@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.NodeServices;
+﻿using Microsoft.AspNetCore.NodeServices;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
@@ -16,9 +13,9 @@ namespace WebOptimizer.NodeServices
     /// <seealso cref="IProcessor" />
     public abstract class NodeProcessor : Processor
     {
+        private static INodeServices _nodeServices;
         private static object _syncRoot = new object();
         private const string _folderName = "WebOptimizer.Node";
-        private INodeServices _nodeServices;
 
         /// <summary>
         /// Gets the <see cref="INodeServices"/> instance.
@@ -33,10 +30,7 @@ namespace WebOptimizer.NodeServices
                     {
                         if (_nodeServices == null)
                         {
-                            var services = new ServiceCollection();
-                            services.AddNodeServices(options => { options.ProjectPath = WorkingDirectory; });
-                            var serviceProvider = services.BuildServiceProvider();
-                            _nodeServices = serviceProvider.GetRequiredService<INodeServices>();
+                            CreateNodeServicesInstance();
                         }
                     }
                 }
@@ -107,6 +101,20 @@ namespace WebOptimizer.NodeServices
             }
 
             return true;
+        }
+
+        private void CreateNodeServicesInstance()
+        {
+            var services = new ServiceCollection();
+
+            services.AddNodeServices(options =>
+            {
+                options.ProjectPath = WorkingDirectory;
+                options.WatchFileExtensions = new string[0];
+            });
+
+            var serviceProvider = services.BuildServiceProvider();
+            _nodeServices = serviceProvider.GetRequiredService<INodeServices>();
         }
     }
 }
