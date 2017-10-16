@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.165-beta" />
+        <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.174-beta" />
         <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="2.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     </ItemGroup>
